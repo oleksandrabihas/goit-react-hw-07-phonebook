@@ -10,8 +10,8 @@ import { Loader } from 'components/Loader/Loader';
 export const ContactList = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  // const isLoading = useSelector(selectIsLoading);
+  // const error = useSelector(selectError);
   const filter = useSelector(selectFilter);
 
     const notify = () =>
