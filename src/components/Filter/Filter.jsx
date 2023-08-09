@@ -1,11 +1,11 @@
 import { NotificationMessage } from 'components/NotificationMessage/NotificationMessage';
 import { FilterSection } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { filterContacts } from 'redux/filterSlice';
 
 export const Filter = () => {
-  const contacts = useSelector(getContacts)
+  const contacts = useSelector(selectContacts)
   const dispatch = useDispatch()
 
   const handleFilter = e => {

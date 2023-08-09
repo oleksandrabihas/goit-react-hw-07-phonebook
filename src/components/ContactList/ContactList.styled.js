@@ -6,10 +6,11 @@ export const ContactsList = styled.ul`
   flex-direction: column;
   gap: 10px;
   li {
-    width: 400px;
+    max-width: 700px;
     height: auto;
     display: flex;
     justify-content: space-between;
+
   }
   button {
     display: block;

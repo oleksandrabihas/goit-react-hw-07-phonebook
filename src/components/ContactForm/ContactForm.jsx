@@ -1,11 +1,18 @@
 import { Form } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const ContactForm = () => {
+  const notify = () =>
+    toast.success('Contact was successfully added to your contacts list.', {
+      duration: 2000,
+      position: 'top-right',
+    });
+
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
 
   const handleAddContact = e => {
     e.preventDefault();
@@ -20,12 +27,14 @@ export const ContactForm = () => {
       return;
     } else {
       dispatch(addContact({ name, phone }));
+      notify();
       form.reset();
     }
   };
 
   return (
     <>
+      <Toaster/>
       <Form onSubmit={handleAddContact}>
         <label htmlFor="name">Name</label>
         <input
@@ -50,4 +59,3 @@ export const ContactForm = () => {
     </>
   );
 };
-
