@@ -12,7 +12,7 @@ export const ContactForm = () => {
     });
 
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  const {items} = useSelector(selectContacts);
 
   const handleAddContact = e => {
     e.preventDefault();
@@ -20,7 +20,7 @@ export const ContactForm = () => {
     const name = form.elements.name.value;
     const phone = form.elements.number.value;
 
-    const contactExists = contacts.some(contact => contact.name === name);
+    const contactExists = items.some(contact => contact.name === name);
 
     if (contactExists) {
       alert(`${name} is already in contacts`);

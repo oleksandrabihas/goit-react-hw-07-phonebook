@@ -1,21 +1,21 @@
 import { ThreeCircles } from 'react-loader-spinner';
+import { StyledLoader } from './Loader.styled';
 
-export const Loader = () => (
-  <ThreeCircles
-    height="100"
-    width="100"
-    color="#4fa94d"
-    wrapperStyle={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: '20px auto',
+export const Loader = ({ isLoading }) => (
+  <StyledLoader
+    style={{
+      display: isLoading ? 'flex' : 'none',
     }}
-    wrapperClass=""
-    visible={true}
-    ariaLabel="three-circles-rotating"
-    outerCircleColor="#841869"
-    innerCircleColor="#e0a8d2"
-    middleCircleColor="#841869"
-  />
+  >
+    <ThreeCircles
+      height="100"
+      width="100"
+      color="#4fa94d"
+      visible={true}
+      ariaLabel="three-circles-rotating"
+      outerCircleColor="#841869"
+      innerCircleColor="#e0a8d2"
+      middleCircleColor="#841869"
+    />
+  </StyledLoader>
 );
